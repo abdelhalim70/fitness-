@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- ===================== SEO =====================
+       Replace "Alex Carter", "Paris" and the domain everywhere (see README). -->
+  <title>Alex Carter | Boxing & Personal Training Coach in Paris</title>
+  <meta name="description" content="Private boxing and fitness coaching in Paris. 1-to-1 sessions, weight loss, boxing for beginners, small groups and online programs. Book your free intro session today." />
+  <meta name="keywords" content="boxing coach Paris, personal trainer Paris, private boxing lessons, weight loss coaching, fitness coach" />
+  <meta name="author" content="Alex Carter" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <link rel="canonical" href="https://www.your-domain.com/" />
+
+  <!-- Open Graph / social previews (Instagram, WhatsApp, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Train like a fighter. Transform your body. | Alex Carter" />
+  <meta property="og:description" content="Private boxing & fitness coaching in Paris. Book your free intro session." />
+  <meta property="og:url" content="https://www.your-domain.com/" />
+  <meta property="og:image" content="https://www.your-domain.com/assets/img/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts: condensed bold headings + clean body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Hero image is the LCP element: preload it -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1600&q=70" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Structured data: helps Google show you in local search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Alex Carter Boxing & Fitness",
+    "description": "Private boxing and fitness coaching in Paris.",
+    "url": "https://www.your-domain.com/",
+    "telephone": "+33 6 00 00 00 00",
+    "email": "hello@your-domain.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+    "openingHours": ["Mo-Fr 06:30-21:00", "Sa 08:00-14:00"],
+    "sameAs": ["https://instagram.com/yourhandle", "https://tiktok.com/@yourhandle", "https://facebook.com/yourpage"]
+  }
+  </script>
+</head>
+
+<body>
+  <a href="#main" class="visually-hidden">Skip to content</a>
+
+  <!-- ======================= 1. HEADER ======================= -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="Alex Carter – home">
+        <span class="logo__mark" aria-hidden="true">AC</span>
+        <span>Alex Carter</span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#pricing">Pricing</a></li>
+          <li><a class="nav__link" href="#results">Results</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#contact" class="btn btn--primary btn--sm" data-plan="Free intro session">Book now</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile slide-in menu -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#results">Results</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn--primary btn--block" data-plan="Free intro session">Book a free intro session</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ======================= 2. HERO ======================= -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__media">
+        <!-- Option: replace the <img> with a background video:
+             <video autoplay muted loop playsinline poster="assets/img/hero.jpg">
+               <source src="assets/video/hero.mp4" type="video/mp4" />
+             </video> -->
+        <img
+          src="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1600&q=70"
+          srcset="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=800&q=70 800w,
+                  https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1600&q=70 1600w"
+          sizes="100vw"
+          alt="Coach holding pads for a client during a boxing session"
+          fetchpriority="high" />
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <span class="hero__badge reveal">Private boxing & fitness coach · Paris</span>
+        <h1 class="hero__title reveal" id="hero-title" data-delay="1">Train like a fighter. <span class="accent">Transform</span> your body.</h1>
+        <p class="hero__subtitle reveal" data-delay="2">
+          1-to-1 boxing and fitness coaching built around your goals, your level and your schedule.
+          Burn fat, build real strength and gain the confidence of a fighter. No experience needed.
+        </p>
+        <div class="hero__ctas reveal" data-delay="3">
+          <a href="#contact" class="btn btn--primary" data-plan="Free intro session">Book a free session</a>
+          <a href="#pricing" class="btn btn--ghost">See pricing</a>
+        </div>
+        <div class="hero__stats reveal" data-delay="3">
+          <div><div class="stat__num">12<span>+</span></div><div class="stat__label">Years coaching</div></div>
+          <div><div class="stat__num">500<span>+</span></div><div class="stat__label">Clients trained</div></div>
+          <div><div class="stat__num">4.9<span>★</span></div><div class="stat__label">Client rating</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 3. ABOUT ======================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__media reveal">
+          <!-- Replace with a real photo of the coach (portrait, ~1000×1250px) -->
+          <img
+            src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=70"
+            alt="Boxing gloves on the floor of Alex Carter's training studio"
+            loading="lazy" width="900" height="1125" />
+          <div class="about__tag">12+ years<small>in the ring & on the floor</small></div>
+        </div>
+
+        <div class="about__text">
+          <span class="eyebrow reveal">About the coach</span>
+          <h2 class="section-title reveal" id="about-title">From the ring <span class="accent">to your corner</span></h2>
+          <p class="reveal">
+            I stepped into a boxing gym at 16 looking for discipline. I found a lifestyle. After years of amateur
+            competition, I turned my experience into coaching, because I saw how much boxing changes people,
+            far beyond the ring.
+          </p>
+          <p class="reveal">
+            Today I help busy professionals, beginners and athletes get fitter, stronger and more confident through
+            the same training methods fighters use: smart, intense and always adapted to you.
+          </p>
+
+          <div class="about__facts">
+            <div class="fact reveal">
+              <div class="fact__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M8.2 13.4 7 22l5-3 5 3-1.2-8.6"/></svg>
+              </div>
+              <div><h3>Fight record</h3><p>Former amateur competitor: 38 fights, regional champion.</p></div>
+            </div>
+            <div class="fact reveal" data-delay="1">
+              <div class="fact__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+              </div>
+              <div><h3>Certified</h3><p>State-certified personal trainer · Boxing coach licence · First aid.</p></div>
+            </div>
+            <div class="fact reveal">
+              <div class="fact__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div><h3>500+ clients</h3><p>From total beginners to competitive fighters.</p></div>
+            </div>
+            <div class="fact reveal" data-delay="1">
+              <div class="fact__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+              </div>
+              <div><h3>Nutrition</h3><p>Sports nutrition training to support your results outside the gym.</p></div>
+            </div>
+          </div>
+
+          <blockquote class="philosophy reveal">
+            "Discipline beats motivation. I'll give you the plan, the technique and the push. You bring the consistency.
+            Together, we get results that last."
+          </blockquote>
+          <a href="#contact" class="btn btn--primary reveal" data-plan="Free intro session">Train with me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 4. SERVICES ======================= -->
+    <section class="section section--alt" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Services</span>
+          <h2 class="section-title reveal" id="services-title">Coaching that <span class="accent">fits your goal</span></h2>
+          <p class="section-lead reveal">Whatever your starting point, there's a program designed to get you to the next level, safely and fast.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card service reveal">
+            <div class="service__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V6a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v6a5 5 0 0 1-5 5H9a3 3 0 0 1-3-3V9Z"/><path d="M6 11H4.5A1.5 1.5 0 0 1 3 9.5v0A1.5 1.5 0 0 1 4.5 8H6M8 21h8M9 17v4M15 17v4"/></svg>
+            </div>
+            <h3>Private 1-to-1 coaching</h3>
+            <p>100% focused on you. The fastest way to learn boxing properly and transform your body.</p>
+            <ul class="service__list">
+              <li>Boxing technique & pad work</li>
+              <li>Conditioning & cardio</li>
+              <li>Strength & mobility</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-delay="1">
+            <div class="service__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.5 1.3 2.8 2.5 2.8Z"/></svg>
+            </div>
+            <h3>Fitness & weight loss</h3>
+            <p>Burn fat, tone up and boost your energy with high-intensity training and simple nutrition habits.</p>
+            <ul class="service__list">
+              <li>Fat-burning boxing circuits</li>
+              <li>Progress tracking every month</li>
+              <li>Realistic nutrition guidance</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-delay="2">
+            <div class="service__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Boxing for beginners</h3>
+            <p>Never thrown a punch? Perfect. Learn the fundamentals step by step in a safe, no-ego environment.</p>
+            <ul class="service__list">
+              <li>Stance, footwork & defence</li>
+              <li>Basic combinations</li>
+              <li>No sparring unless you want it</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal">
+            <div class="service__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Small group sessions</h3>
+            <p>Train with friends or colleagues (2–6 people). Same expert coaching, shared cost, double the energy.</p>
+            <ul class="service__list">
+              <li>Duo & team sessions</li>
+              <li>Corporate team-building</li>
+              <li>Fun, competitive atmosphere</li>
+            </ul>
+          </article>
+
+          <article class="card service reveal" data-delay="1">
+            <div class="service__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>Online coaching</h3>
+            <p>A personalised program in your pocket. Train anywhere with video guidance and weekly check-ins.</p>
+            <ul class="service__list">
+              <li>Custom training plan</li>
+              <li>Video technique feedback</li>
+              <li>Weekly WhatsApp check-in</li>
+            </ul>
+          </article>
+
+          <article class="card service service--cta reveal" data-delay="2">
+            <h3>Not sure where to start?</h3>
+            <p>Book a free 30-minute intro session. We'll assess your level, talk goals and build your plan. Zero commitment.</p>
+            <a href="#contact" class="btn" data-plan="Free intro session">Book a free intro session</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 5. PRICING ======================= -->
+    <!-- Prices live in data-* attributes so the monthly / 3-month toggle can switch them.
+         Stripe Payment Links are set in assets/js/main.js (CONFIG.paymentLinks). -->
+    <section class="section" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow reveal">Pricing & subscriptions</span>
+          <h2 class="section-title reveal" id="pricing-title">Invest in <span class="accent">yourself</span></h2>
+          <p class="section-lead reveal">Simple, transparent pricing. No hidden fees. Commit for 3 months and save.</p>
+          <div class="billing-toggle reveal" role="group" aria-label="Billing period">
+            <button type="button" data-billing="monthly" aria-pressed="true">Monthly</button>
+            <button type="button" data-billing="quarterly" aria-pressed="false">3 months <span class="save">-10%</span></button>
+          </div>
+        </div>
+
+        <div class="pricing">
+          <!-- Plan 1 -->
+          <article class="card plan reveal" data-plan-id="single">
+            <h3 class="plan__name">Single session</h3>
+            <p class="plan__desc">Try a full private session or train whenever it suits you.</p>
+            <div class="plan__price">
+              <span class="plan__amount" data-monthly="€60" data-quarterly="€165">€60</span>
+              <span class="plan__period" data-monthly="/ session" data-quarterly="/ pack of 3">/ session</span>
+            </div>
+            <p class="plan__note" data-monthly="Pay as you go" data-quarterly="3-session pack · save €15">Pay as you go</p>
+            <ul class="plan__features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>60-min private session</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Boxing, conditioning or strength</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Gloves & equipment provided</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>No commitment</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block js-subscribe" data-plan="Single session">Book a session</a>
+          </article>
+
+          <!-- Plan 2: highlighted -->
+          <article class="card plan plan--featured reveal" data-delay="1" data-plan-id="monthly">
+            <span class="plan__badge">Most popular</span>
+            <h3 class="plan__name">Fighter plan</h3>
+            <p class="plan__desc">The sweet spot for real, visible transformation.</p>
+            <div class="plan__price">
+              <span class="plan__amount" data-monthly="€390" data-quarterly="€350">€390</span>
+              <span class="plan__period">/ month</span>
+            </div>
+            <p class="plan__note" data-monthly="≈ €49 per session" data-quarterly="Billed €1,050 every 3 months · save €120">≈ €49 per session</p>
+            <ul class="plan__features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>8 private sessions / month</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Personalised training plan</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Monthly progress check-in</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Home workouts between sessions</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Priority booking</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--block js-subscribe" data-plan="Fighter plan">Subscribe</a>
+          </article>
+
+          <!-- Plan 3 -->
+          <article class="card plan reveal" data-delay="2" data-plan-id="premium">
+            <h3 class="plan__name">Champion plan</h3>
+            <p class="plan__desc">All-in coaching for maximum results, in and out of the gym.</p>
+            <div class="plan__price">
+              <span class="plan__amount" data-monthly="€690" data-quarterly="€620">€690</span>
+              <span class="plan__period">/ month</span>
+            </div>
+            <p class="plan__note" data-monthly="Full support, 7 days a week" data-quarterly="Billed €1,860 every 3 months · save €210">Full support, 7 days a week</p>
+            <ul class="plan__features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Unlimited private sessions</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Personalised nutrition guidance</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>WhatsApp follow-up, 7 days a week</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Body composition tracking</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Online program for travel weeks</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--block js-subscribe" data-plan="Champion plan">Subscribe</a>
+          </article>
+        </div>
+
+        <p class="pricing__foot reveal">
+          Secure payment by card via Stripe. Cancel monthly plans anytime with 7 days' notice.
+          Not sure? <a href="#contact" data-plan="Free intro session">Start with a free intro session →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================= 6. HOW IT WORKS ======================= -->
+    <section class="section section--alt" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow reveal">How it works</span>
+          <h2 class="section-title reveal" id="how-title">3 steps to <span class="accent">your best shape</span></h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Book your intro session</h3>
+            <p>Free, 30 minutes, no pressure. We meet, talk about your goals and test your current level.</p>
+          </li>
+          <li class="step reveal" data-delay="1">
+            <span class="step__num">02</span>
+            <h3>Get your personalised plan</h3>
+            <p>I build a training (and nutrition) plan around your body, your schedule and your target.</p>
+          </li>
+          <li class="step reveal" data-delay="2">
+            <span class="step__num">03</span>
+            <h3>Train & see results</h3>
+            <p>We put in the work together. You track your progress every month and feel the difference within weeks.</p>
+          </li>
+        </ol>
+        <div class="steps__cta reveal">
+          <a href="#contact" class="btn btn--primary" data-plan="Free intro session">Start now, it's free</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 7. RESULTS / TESTIMONIALS ======================= -->
+    <!-- IMPORTANT: replace placeholders with REAL client photos & reviews (with their written consent). -->
+    <section class="section" id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Results</span>
+          <h2 class="section-title reveal" id="results-title">Real people. <span class="accent">Real results.</span></h2>
+          <p class="section-lead reveal">Consistency + the right coaching = transformation. Here's what my clients achieved.</p>
+        </div>
+
+        <div class="ba-grid">
+          <article class="ba reveal">
+            <div class="ba__images">
+              <figure><img src="assets/img/placeholder-before.svg" alt="Client Karim before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
+              <figure><img src="assets/img/placeholder-after.svg" alt="Client Karim after 4 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
+            </div>
+            <div class="ba__body"><strong>Karim · -14 kg</strong><span>4 months · Fighter plan</span></div>
+          </article>
+          <article class="ba reveal" data-delay="1">
+            <div class="ba__images">
+              <figure><img src="assets/img/placeholder-before.svg" alt="Client Sarah before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
+              <figure><img src="assets/img/placeholder-after.svg" alt="Client Sarah after 6 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
+            </div>
+            <div class="ba__body"><strong>Sarah · -9 kg</strong><span>6 months · Champion plan</span></div>
+          </article>
+          <article class="ba reveal" data-delay="2">
+            <div class="ba__images">
+              <figure><img src="assets/img/placeholder-before.svg" alt="Client Thomas before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
+              <figure><img src="assets/img/placeholder-after.svg" alt="Client Thomas after 3 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
+            </div>
+            <div class="ba__body"><strong>Thomas · +6 kg muscle</strong><span>3 months · Fighter plan</span></div>
+          </article>
+        </div>
+
+        <div class="reviews">
+          <figure class="card review reveal">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"I'd never boxed in my life and was honestly intimidated. Alex made me feel at home from day one. 4 months later I'm 14 kg lighter and I actually look forward to training."</blockquote>
+            <figcaption class="review__author">
+              <img src="assets/img/avatar-k.svg" alt="" width="48" height="48" loading="lazy" />
+              <div><strong>Karim B.</strong><span>Engineer · client since 2024</span></div>
+            </figcaption>
+          </figure>
+          <figure class="card review reveal" data-delay="1">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Best investment I've made in myself. The sessions are intense but always adapted, and the WhatsApp follow-up keeps me on track with my nutrition. Results I never got at the gym alone."</blockquote>
+            <figcaption class="review__author">
+              <img src="assets/img/avatar-s.svg" alt="" width="48" height="48" loading="lazy" />
+              <div><strong>Sarah L.</strong><span>Lawyer · Champion plan</span></div>
+            </figcaption>
+          </figure>
+          <figure class="card review reveal" data-delay="2">
+            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>"Technique, cardio, mindset: Alex covers everything. My stamina has doubled, I've put on muscle and I finally feel confident. Can't recommend him enough."</blockquote>
+            <figcaption class="review__author">
+              <img src="assets/img/avatar-t.svg" alt="" width="48" height="48" loading="lazy" />
+              <div><strong>Thomas R.</strong><span>Student · Fighter plan</span></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 8. GALLERY ======================= -->
+    <section class="section section--alt" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Gallery</span>
+          <h2 class="section-title reveal" id="gallery-title">Inside the <span class="accent">training</span></h2>
+        </div>
+
+        <!-- Replace with your own photos. For a video tile use:
+             <video src="assets/video/clip.mp4" muted loop playsinline autoplay></video> -->
+        <div class="gallery">
+          <div class="gallery__item gallery__item--tall reveal"><img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=700&q=65" alt="Black boxing gloves resting on the gym floor" loading="lazy" /></div>
+          <div class="gallery__item reveal" data-delay="1"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&q=65" alt="Client doing core exercises on a mat" loading="lazy" /></div>
+          <div class="gallery__item reveal" data-delay="2"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=65" alt="Dumbbell rack in the training gym" loading="lazy" /></div>
+          <div class="gallery__item gallery__item--tall reveal" data-delay="3"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=700&q=65" alt="Athlete doing battle-rope conditioning outdoors" loading="lazy" /></div>
+          <div class="gallery__item gallery__item--wide reveal"><img src="https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&w=1000&q=65" alt="Pad work drill between coach and client" loading="lazy" /></div>
+        </div>
+
+        <!-- INSTAGRAM FEED: paste your widget embed here (e.g. Behold, SnapWidget, Elfsight). See README. -->
+        <div id="instagram-feed"></div>
+
+        <div class="insta-cta reveal">
+          <p><strong>Follow the journey</strong><span style="color:var(--muted)">Daily training clips, tips and client wins on Instagram.</span></p>
+          <a href="https://instagram.com/yourhandle" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">@yourhandle</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 9. FAQ ======================= -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <span class="eyebrow reveal">FAQ</span>
+          <h2 class="section-title reveal" id="faq-title">Questions? <span class="accent">Answered.</span></h2>
+        </div>
+
+        <div class="faq">
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-1" id="faq-1-btn">What happens during the first session?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-1-btn"><div><p>Your free intro session lasts about 30 minutes. We talk about your goals, health history and schedule, then do a light movement and fitness assessment and a taste of boxing. You leave with a clear recommendation, with no obligation to sign up.</p></div></div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-2" id="faq-2-btn">What equipment do I need?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-2-btn"><div><p>Just comfortable sportswear, trainers, a water bottle and a towel. Gloves, wraps, pads and all training equipment are provided. If you get hooked, I'll help you choose your own gear.</p></div></div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-3" id="faq-3-btn">I'm a complete beginner. Is this for me?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-3-btn"><div><p>Absolutely. Most of my clients had never boxed before. Every session is adapted to your level and fitness. There's no sparring or contact unless you ask for it. You'll progress at your own pace, safely.</p></div></div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-4" id="faq-4-btn">What is your cancellation policy?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-4-btn"><div><p>You can reschedule or cancel any session free of charge up to 24 hours in advance. Late cancellations count as a completed session. Monthly plans can be cancelled anytime with 7 days' notice; 3-month plans run for their full term.</p></div></div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn">Where do sessions take place?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-5-btn"><div><p>Sessions take place at my private training studio in Paris (see the map below). I can also come to your home, office or a park nearby for an extra travel fee, and online coaching works from anywhere.</p></div></div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__q" aria-expanded="false" aria-controls="faq-6" id="faq-6-btn">How fast will I see results?<span class="faq__icon" aria-hidden="true"></span></button>
+            <div class="faq__a" id="faq-6" role="region" aria-labelledby="faq-6-btn"><div><p>Most clients feel more energy and better stamina within 2–3 weeks, and see visible changes in 6–8 weeks with 2 sessions a week and the right nutrition. Consistency is the key, and I'll keep you consistent.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 10. CONTACT / BOOKING ======================= -->
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Book now</span>
+          <h2 class="section-title reveal" id="contact-title">Your first session <span class="accent">is on me</span></h2>
+          <p class="section-lead reveal">Fill in the form and I'll get back to you within 24 hours. Prefer to chat? Message me on WhatsApp.</p>
+        </div>
+
+        <div class="contact">
+          <!-- Booking form. Works out of the box on Netlify (Netlify Forms → email notifications).
+               On Vercel/other hosts, set CONFIG.formEndpoint in main.js (e.g. Formspree). -->
+          <form class="form reveal" id="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="booking" />
+            <p class="visually-hidden"><label>Don't fill this in: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="name">Full name *</label>
+                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone / WhatsApp *</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+33 6 12 34 56 78" />
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" />
+              </div>
+              <div class="field">
+                <label for="goal">Main goal *</label>
+                <select id="goal" name="goal" required>
+                  <option value="" disabled selected>Choose your goal</option>
+                  <option>Lose weight</option>
+                  <option>Learn boxing</option>
+                  <option>Get fit & build stamina</option>
+                  <option>Build strength & muscle</option>
+                  <option>Prepare for competition</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="plan">Preferred plan</label>
+              <select id="plan" name="plan">
+                <option selected>Free intro session</option>
+                <option>Single session</option>
+                <option>Fighter plan</option>
+                <option>Champion plan</option>
+                <option>Small group sessions</option>
+                <option>Online coaching</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell me about your experience, availability, injuries…"></textarea>
+            </div>
+            <label class="form__consent">
+              <input type="checkbox" name="consent" required />
+              <span>I agree that my data is used to contact me about my request. See the <a href="privacy.html">privacy policy</a>. *</span>
+            </label>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Book my free session</button>
+              <a href="#" class="btn btn--whatsapp js-whatsapp" target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2Z"/></svg>
+                WhatsApp me
+              </a>
+            </div>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="reveal" data-delay="1">
+            <div class="map">
+              <!-- Replace q= with your exact address. No API key needed for this embed. -->
+              <iframe
+                title="Map showing the training studio location in Paris"
+                src="https://www.google.com/maps?q=Paris,France&output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="info-card">
+              <h3>Opening hours</h3>
+              <ul class="hours">
+                <li><span>Monday – Friday</span><span>6:30 – 21:00</span></li>
+                <li><span>Saturday</span><span>8:00 – 14:00</span></li>
+                <li><span>Sunday</span><span>Closed</span></li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <h3>Find me</h3>
+              <p style="color:var(--muted);margin-bottom:6px">12 Rue de l'Exemple, 75011 Paris</p>
+              <p style="margin-bottom:6px"><a href="tel:+33600000000">+33 6 00 00 00 00</a></p>
+              <p><a href="mailto:hello@your-domain.com">hello@your-domain.com</a></p>
+              <div class="socials">
+                <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                </a>
+                <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener" aria-label="TikTok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg>
+                </a>
+                <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.1A28 28 0 0 0 14.6 2C12 2 10 3.7 10 6.7v2.8H7v4h3V22h4v-8.5Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final conversion band -->
+    <section class="cta-band" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title" class="reveal">Your fight starts today</h2>
+        <p class="reveal">Spots are limited each month to guarantee quality coaching. Claim your free intro session now.</p>
+        <a href="#contact" class="btn reveal" data-plan="Free intro session">Start now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================= 11. FOOTER ======================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo__mark" aria-hidden="true">AC</span><span>Alex Carter</span></a>
+          <p>Private boxing & fitness coaching in Paris. Train like a fighter, live like a champion.</p>
+          <div class="socials">
+            <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg></a>
+            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.1A28 28 0 0 0 14.6 2C12 2 10 3.7 10 6.7v2.8H7v4h3V22h4v-8.5Z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#results">Results</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" data-plan="Free intro session">Free intro session</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+33600000000">+33 6 00 00 00 00</a></li>
+            <li><a href="mailto:hello@your-domain.com">hello@your-domain.com</a></li>
+            <li><a href="#contact">Paris, France</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Alex Carter Coaching. All rights reserved.</span>
+        <div class="footer__legal">
+          <a href="privacy.html">Privacy policy</a>
+          <a href="privacy.html#legal">Legal notice</a>
+          <a href="privacy.html#terms">Terms of sale</a>
+          <button type="button" class="js-cookie-settings">Cookie settings</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky bottom booking bar (phones only) -->
+  <div class="mobile-cta" id="mobile-cta">
+    <a href="#contact" class="btn btn--primary btn--block" data-plan="Free intro session">Book a free intro session</a>
+  </div>
+
+  <!-- Floating WhatsApp button -->
+  <a href="#" class="wa-float js-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2Z"/></svg>
+  </a>
+
+  <!-- Cookie banner -->
+  <div class="cookie" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+    <p>🍪 This site uses essential cookies and, with your consent, analytics cookies to improve your experience. <a href="privacy.html#cookies">Learn more</a></p>
+    <div class="cookie__actions">
+      <button type="button" class="btn btn--primary btn--sm" data-cookie="accept">Accept all</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-cookie="reject">Essential only</button>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
