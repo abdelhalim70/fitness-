@@ -21,17 +21,16 @@ The booking form only *sends* once deployed (Netlify) or once `formEndpoint` is 
 
 ## 2. Personalise (checklist)
 
-**Find & replace across all files:**
+**Already filled in from the CV:** name (Abdelhalim Benhaddi), logo (A2B), location (Abu Dhabi, UAE), phone / WhatsApp (+212 655 911650), email, experience, titles and certifications.
+
+**Still to replace (find & replace across all files):**
 
 | Placeholder | Replace with |
 |---|---|
-| `Alex Carter` / `Alex` / `AC` (logo) | Coach name / first name / initials |
-| `Paris` / `France` / `12 Rue de l'Exemple, 75011 Paris` | City / country / studio address |
-| `+33 6 00 00 00 00` / `+33600000000` | Phone number |
-| `hello@your-domain.com` | Email |
 | `your-domain.com` | Your domain (canonical URL, Open Graph) |
 | `yourhandle` / `yourpage` | Instagram, TikTok and Facebook handles |
-| `SIRET 000…` | Business registration number (privacy.html) |
+| `[add your licence number]` | UAE trade / freelance licence number (privacy.html) |
+| `+212 655 911650` / `212655911650` | Your UAE number, once you have one (index.html, privacy.html, main.js) |
 
 **In [assets/js/main.js](assets/js/main.js), edit `CONFIG`:**
 - `whatsappNumber`: digits only, international format (e.g. `33612345678`).
@@ -64,9 +63,9 @@ After a successful submit, the visitor is offered a WhatsApp message pre-filled 
 
 1. Create a [Stripe](https://stripe.com) account.
 2. *Product catalogue → Add product* for each plan:
-   - Single session: one-off €60, and a 3-pack at €165
-   - Fighter plan: recurring €390/month, and €1,050 every 3 months
-   - Champion plan: recurring €690/month, and €1,860 every 3 months
+   - Single session: one-off AED 300, and a 3-pack at AED 825
+   - Fighter plan: recurring AED 2,000/month, and AED 5,400 every 3 months
+   - Champion plan: recurring AED 3,500/month, and AED 9,450 every 3 months
 3. For each price, *Create payment link*, then paste the URLs into `CONFIG.paymentLinks`.
 4. In the payment link settings, set the success redirect to `https://your-domain.com/#contact` (or a thank-you page).
 
@@ -102,5 +101,5 @@ Instagram doesn't allow a free official feed without an API app. The easiest opt
 - [ ] Form tested end-to-end and the email notification received
 - [ ] WhatsApp button opens a chat with the right number
 - [ ] Stripe links tested in test mode, then switched to live
-- [ ] Privacy policy reviewed for your country
+- [ ] Privacy policy reviewed for UAE law (PDPL), licence number added
 - [ ] Submit `https://your-domain.com` to Google Search Console and create a Google Business Profile (big win for local search)

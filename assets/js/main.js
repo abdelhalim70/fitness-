@@ -5,8 +5,8 @@
 
 const CONFIG = {
   // WhatsApp number in international format, digits only (no +, spaces or leading 0).
-  whatsappNumber: "33600000000",
-  whatsappMessage: "Hi Alex! I'd like to book my free intro session.",
+  whatsappNumber: "212655911650",
+  whatsappMessage: "Hi Abdelhalim! I'd like to book my free intro session.",
 
   // Leave empty to use Netlify Forms (works automatically when hosted on Netlify).
   // On Vercel or elsewhere, create a free form at https://formspree.io and paste its URL:
@@ -188,7 +188,7 @@ form.addEventListener("submit", async (e) => {
 
     // Offer an instant WhatsApp follow-up with the details pre-filled.
     const wa = waUrl(
-      `Hi Alex! I just booked via your website.\nName: ${data.get("name")}\nGoal: ${data.get("goal")}\nPlan: ${data.get("plan")}`
+      `Hi Abdelhalim! I just booked via your website.\nName: ${data.get("name")}\nGoal: ${data.get("goal")}\nPlan: ${data.get("plan")}`
     );
     setStatus(
       `✅ Thanks ${escapeHtml(String(data.get("name")).split(" ")[0])}! Your request is in. I'll contact you within 24h. ` +
