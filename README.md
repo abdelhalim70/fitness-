@@ -7,7 +7,16 @@ index.html            → the one-page site (all sections + copy)
 privacy.html          → privacy policy, cookies, terms of sale, legal notice
 assets/css/styles.css → all styles (colours & fonts at the top in :root)
 assets/js/main.js     → interactions + CONFIG (WhatsApp, form, Stripe, analytics)
-assets/img/           → favicon, before/after placeholders, review avatars
+assets/img/           → logo (logo-mark.svg, logo-text.svg, logo-full.svg), icons (favicon, apple-touch-icon,
+                        icon-192/512 for phones), link-preview images (og-image-en/ar.jpg) and the coach's photos
+site.webmanifest      → phone home-screen app name and icon
+
+> **Changing the tab icon later?** Browsers cache it hard. After replacing `favicon.svg` / the icon PNGs,
+> bump the `?v=2` on the icon links in `index.html` and `privacy.html` (e.g. to `?v=3`), then run `python3 tools/build-ar.py`.
+ar/index.html         → Arabic version (right-to-left). GENERATED, don't edit by hand
+tools/build-ar.py     → builds ar/index.html from index.html + the Arabic translations
+netlify.toml          → Netlify settings (security headers, image/CSS/JS caching)
+robots.txt, sitemap.xml → for Google (replace your-domain.com before launch)
 ```
 
 ## 1. Preview locally
@@ -28,7 +37,6 @@ The booking form only *sends* once deployed (Netlify) or once `formEndpoint` is 
 | Placeholder | Replace with |
 |---|---|
 | `your-domain.com` | Your domain (canonical URL, Open Graph) |
-| `yourhandle` / `yourpage` | Instagram, TikTok and Facebook handles |
 | `[add your licence number]` | UAE trade / freelance licence number (privacy.html) |
 | `+212 655 911650` / `212655911650` | Your UAE number, once you have one (index.html, privacy.html, main.js) |
 
@@ -50,7 +58,23 @@ The booking form only *sends* once deployed (Netlify) or once `formEndpoint` is 
 
 Hero video: the hero has a commented-out `<video>` snippet. Keep the file small (under 3 MB, 720p, no audio).
 
-**Results & testimonials:** the before/after images and reviews are placeholders. Replace them with real client photos and quotes, and only with each client's written permission.
+**Social links:** Instagram (@abdelhalimlife) is linked in the gallery, contact section and footer. To add TikTok or Facebook, copy one of the Instagram `<a>` links inside a `.socials` block and change the URL, icon and `aria-label`.
+
+**Reviews / results:** removed until you have real ones. To add them back, ask for a testimonials section and use only real client quotes and photos, with written permission.
+
+## Arabic version (/ar/)
+
+The Arabic page is generated from the English page, so both always share the same layout and code:
+
+```bash
+python3 tools/build-ar.py
+```
+
+- **After any change to `index.html`, run the command above.** If you changed English text, the script stops and lists the sentences whose Arabic translation needs updating in `tools/build-ar.py`.
+- It also warns if English text would appear on the Arabic page.
+- Booking-form choices keep English values, so every booking email arrives in English, with a `language` field (`en` / `ar`) telling you which page the client used.
+- The privacy page is English only; the Arabic form links to it and says so.
+- **Check the Arabic spelling of your name:** the page uses «عبد الحليم بنحدي». Change `NAME_AR` at the top of the script if you write it differently.
 
 ## 3. Booking form → email
 
@@ -84,7 +108,7 @@ Instagram doesn't allow a free official feed without an API app. The easiest opt
 **Netlify (recommended because forms work out of the box)**
 1. Push this folder to GitHub.
 2. Go to [app.netlify.com](https://app.netlify.com), choose *Add new site → Import from Git*, and pick the repo.
-3. Leave the build command empty and set the publish directory to `/`. Then deploy.
+3. Leave the build command empty. `netlify.toml` already sets the publish directory. Then deploy.
    (Or drag and drop the folder onto https://app.netlify.com/drop.)
 4. Add your domain under *Domain management*. HTTPS is automatic.
 5. Turn on the form email notification (section 3).
@@ -96,8 +120,7 @@ Instagram doesn't allow a free official feed without an API app. The easiest opt
 
 ## 7. Before going live
 
-- [ ] All placeholders replaced (search for `your-domain`, `yourhandle`, `00 00`)
-- [ ] Real photos, results and testimonials (with consent)
+- [ ] All placeholders replaced (search for `your-domain`, including robots.txt and sitemap.xml)
 - [ ] Form tested end-to-end and the email notification received
 - [ ] WhatsApp button opens a chat with the right number
 - [ ] Stripe links tested in test mode, then switched to live

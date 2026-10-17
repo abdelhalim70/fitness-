@@ -1,0 +1,24 @@
+# Netlify settings. No build step: the site is served as-is from the repo root.
+[build]
+  publish = "."
+
+# Security headers for every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache images, CSS and JS for a week (file names aren't versioned, so not longer)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Browsers and crawlers ask for /favicon.ico by default: serve the PNG logo icon
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/assets/img/favicon-32.png"
+  status = 200

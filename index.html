@@ -5,33 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
   <!-- ===================== SEO =====================
-       Coach details come from the CV. Still to replace: the domain and social handles (see README). -->
+       Coach details come from the CV. Still to replace: the domain (see README). -->
   <title>Abdelhalim Benhaddi | Boxing, Martial Arts & Personal Trainer in Abu Dhabi</title>
   <meta name="description" content="Private boxing, martial arts and fitness coaching in Abu Dhabi with a national karate champion and Les Mills certified instructor. 1-to-1 sessions, weight loss, beginners, small groups and online programs. Book your free intro session." />
   <meta name="keywords" content="boxing coach Abu Dhabi, personal trainer Abu Dhabi, karate coach Abu Dhabi, private boxing lessons, kickboxing, weight loss coaching, fitness coach UAE" />
   <meta name="author" content="Abdelhalim Benhaddi" />
   <meta name="theme-color" content="#0b0b0c" />
   <link rel="canonical" href="https://www.your-domain.com/" />
+  <link rel="alternate" hreflang="en" href="https://www.your-domain.com/" />
+  <link rel="alternate" hreflang="ar" href="https://www.your-domain.com/ar/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.your-domain.com/" />
 
   <!-- Open Graph / social previews (Instagram, WhatsApp, Facebook) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Train like a fighter. Transform your body. | Abdelhalim Benhaddi" />
   <meta property="og:description" content="Private boxing, martial arts & fitness coaching in Abu Dhabi. Book your free intro session." />
   <meta property="og:url" content="https://www.your-domain.com/" />
-  <meta property="og:image" content="https://www.your-domain.com/assets/img/coach-battle-ropes.jpg" />
+  <meta property="og:image" content="https://www.your-domain.com/assets/img/og-image-en.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.your-domain.com/assets/img/og-image-en.jpg" />
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/img/favicon.svg?v=2" type="image/svg+xml" />
+  <link rel="icon" href="assets/img/favicon-32.png?v=2" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=2" />
+  <link rel="manifest" href="site.webmanifest?v=2" />
 
   <!-- Fonts: condensed bold headings + clean body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Logo files used by the splash screen and header -->
+  <link rel="preload" as="image" href="assets/img/logo-mark.svg" />
+  <link rel="preload" as="image" href="assets/img/logo-text.svg" />
+
   <!-- Hero image is the LCP element: preload it -->
   <link rel="preload" as="image" href="assets/img/coach-battle-ropes.jpg" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Splash screen: shown once per browser session, never with "reduce motion" -->
+  <script>
+    try {
+      if (sessionStorage.getItem("splash-seen") || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("no-splash");
+      }
+      sessionStorage.setItem("splash-seen", "1");
+    } catch (e) {}
+  </script>
 
   <!-- Structured data: helps Google show you in local search -->
   <script type="application/ld+json">
@@ -42,23 +64,35 @@
     "knowsLanguage": ["ar", "en", "fr"],
     "description": "Private boxing, martial arts and fitness coaching in Abu Dhabi.",
     "url": "https://www.your-domain.com/",
+    "logo": "https://www.your-domain.com/assets/img/icon-512.png",
+    "image": "https://www.your-domain.com/assets/img/og-image-en.jpg",
+    "slogan": "Push your limits",
     "telephone": "+212 655 911650",
     "email": "abdelhalimbenhaddi09@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Abu Dhabi", "addressCountry": "AE" },
     "openingHours": ["Mo-Fr 06:30-21:00", "Sa 08:00-14:00"],
-    "sameAs": ["https://instagram.com/yourhandle", "https://tiktok.com/@yourhandle", "https://facebook.com/yourpage"]
+    "sameAs": ["https://www.instagram.com/abdelhalimlife/"]
   }
   </script>
 </head>
 
 <body>
+  <!-- Splash screen (decorative). Hides itself via CSS even if JavaScript fails. -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash__logo">
+      <img class="splash__mark" src="assets/img/logo-mark.svg" alt="" width="227" height="198" />
+      <img class="splash__text" src="assets/img/logo-text.svg" alt="" width="341" height="185" />
+      <span class="splash__bar"></span>
+    </div>
+  </div>
+
   <a href="#main" class="visually-hidden">Skip to content</a>
 
   <!-- ======================= 1. HEADER ======================= -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#top" class="logo" aria-label="Abdelhalim Benhaddi – home">
-        <span class="logo__mark" aria-hidden="true">A2B</span>
+        <img class="logo__mark" src="assets/img/logo-mark.svg" alt="" width="39" height="34" />
         <span class="logo__name">Abdelhalim Benhaddi</span>
       </a>
 
@@ -67,12 +101,13 @@
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#services">Services</a></li>
           <li><a class="nav__link" href="#pricing">Pricing</a></li>
-          <li><a class="nav__link" href="#results">Results</a></li>
+          <li><a class="nav__link" href="#gallery">Gallery</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header__actions">
+        <a href="ar/" class="lang-switch" hreflang="ar" lang="ar" aria-label="النسخة العربية">عربي</a>
         <a href="#contact" class="btn btn--primary btn--sm" data-plan="Free intro session">Book now</a>
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
@@ -82,13 +117,14 @@
   </header>
 
   <!-- Mobile slide-in menu -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu" id="mobile-menu" inert>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>
-    <a href="#results">Results</a>
+    <a href="#gallery">Gallery</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
+    <a href="ar/" class="mobile-menu__lang" hreflang="ar" lang="ar">عربي · النسخة العربية</a>
     <a href="#contact" class="btn btn--primary btn--block" data-plan="Free intro session">Book a free intro session</a>
   </div>
 
@@ -273,10 +309,95 @@
       </div>
     </section>
 
+    <!-- ======================= 4b. SIGNATURE GROUP CLASSES (Les Mills) ======================= -->
+    <section class="classes" id="classes" aria-labelledby="classes-title">
+      <!-- Scrolling ticker (decorative; the list is duplicated so the loop is seamless) -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track"><span>RPM™</span><span>BODYPUMP™</span><span>Boxing</span><span>Kickboxing</span><span>HIIT</span><span>Karate</span><span>Push your limits</span><span>RPM™</span><span>BODYPUMP™</span><span>Boxing</span><span>Kickboxing</span><span>HIIT</span><span>Karate</span><span>Push your limits</span></div>
+      </div>
+
+      <div class="classes__stage">
+        <!-- Cinematic photo: full height, fades into the background -->
+        <div class="classes__photo" aria-hidden="false">
+          <img src="assets/img/coach-rpm-cycling.jpg" alt="Abdelhalim Benhaddi on an indoor cycling bike in a spin studio" loading="lazy" width="900" height="1242" />
+        </div>
+        <span class="classes__giant" aria-hidden="true">A2B</span>
+
+        <div class="container classes__inner">
+          <div class="classes__content">
+            <span class="classes__cert reveal"><svg viewBox="0 0 10 9" aria-hidden="true"><polygon points="5,0 10,9 0,9" /></svg>Les Mills certified instructor</span>
+            <h2 class="section-title reveal" id="classes-title">Ride hard. <span class="accent">Lift strong.</span></h2>
+            <p class="section-lead reveal">
+              Two of the world's best-known group workouts, coached with fighter energy. Pick your class and see how it hits.
+            </p>
+
+            <div class="class-tabs reveal" role="tablist" aria-label="Group classes">
+              <button type="button" role="tab" id="tab-rpm" aria-controls="panel-rpm" aria-selected="true">
+                <strong>RPM™</strong><span>Indoor cycling</span>
+              </button>
+              <button type="button" role="tab" id="tab-pump" aria-controls="panel-pump" aria-selected="false" tabindex="-1">
+                <strong>BODYPUMP™</strong><span>Barbell strength</span>
+              </button>
+            </div>
+
+            <!-- RPM panel -->
+            <div class="class-panel is-active" role="tabpanel" id="panel-rpm" aria-labelledby="tab-rpm">
+              <p>A music-driven ride through hills, sprints and flats. Serious cardio, low impact on your joints, and you control the resistance.</p>
+              <ul class="class-stats">
+                <li><strong>45</strong><span>minutes</span></li>
+                <li><strong>Cardio</strong><span>focus</span></li>
+                <li><strong>All</strong><span>levels</span></li>
+              </ul>
+              <figure class="class-chart">
+                <figcaption>Intensity across a typical ride</figcaption>
+                <svg class="rpm-chart" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="rpmFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#e10600" stop-opacity=".45" />
+                      <stop offset="1" stop-color="#e10600" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="186" x2="600" y2="186" class="rpm-chart__base" />
+                  <path class="rpm-chart__area" d="M 0 146.0 C 20.0 146.0, 20.0 138.0, 40 138.0 C 65.0 138.0, 65.0 106.0, 90 106.0 C 110.0 106.0, 110.0 98.0, 130 98.0 C 150.0 98.0, 150.0 102.8, 170 102.8 C 185.0 102.8, 185.0 74.0, 200 74.0 C 220.0 74.0, 220.0 58.0, 240 58.0 C 255.0 58.0, 255.0 77.2, 270 77.2 C 285.0 77.2, 285.0 38.8, 300 38.8 C 310.0 38.8, 310.0 98.0, 320 98.0 C 332.5 98.0, 332.5 34.0, 345 34.0 C 355.0 34.0, 355.0 106.0, 365 106.0 C 377.5 106.0, 377.5 30.8, 390 30.8 C 405.0 30.8, 405.0 74.0, 420 74.0 C 445.0 74.0, 445.0 50.0, 470 50.0 C 490.0 50.0, 490.0 26.0, 510 26.0 C 522.5 26.0, 522.5 90.0, 535 90.0 C 547.5 90.0, 547.5 138.0, 560 138.0 C 580.0 138.0, 580.0 157.2, 600 157.2 L 600 200 L 0 200 Z" fill="url(#rpmFill)" />
+                  <path class="rpm-chart__line" d="M 0 146.0 C 20.0 146.0, 20.0 138.0, 40 138.0 C 65.0 138.0, 65.0 106.0, 90 106.0 C 110.0 106.0, 110.0 98.0, 130 98.0 C 150.0 98.0, 150.0 102.8, 170 102.8 C 185.0 102.8, 185.0 74.0, 200 74.0 C 220.0 74.0, 220.0 58.0, 240 58.0 C 255.0 58.0, 255.0 77.2, 270 77.2 C 285.0 77.2, 285.0 38.8, 300 38.8 C 310.0 38.8, 310.0 98.0, 320 98.0 C 332.5 98.0, 332.5 34.0, 345 34.0 C 355.0 34.0, 355.0 106.0, 365 106.0 C 377.5 106.0, 377.5 30.8, 390 30.8 C 405.0 30.8, 405.0 74.0, 420 74.0 C 445.0 74.0, 445.0 50.0, 470 50.0 C 490.0 50.0, 490.0 26.0, 510 26.0 C 522.5 26.0, 522.5 90.0, 535 90.0 C 547.5 90.0, 547.5 138.0, 560 138.0 C 580.0 138.0, 580.0 157.2, 600 157.2" pathLength="1" />
+                </svg>
+                <ol class="rpm-phases">
+                  <li>Warm-up</li><li>Pace</li><li>Hills</li><li>Intervals</li><li>Mountain climb</li><li>Cool-down</li>
+                </ol>
+              </figure>
+            </div>
+
+            <!-- BODYPUMP panel -->
+            <div class="class-panel" role="tabpanel" id="panel-pump" aria-labelledby="tab-pump" hidden>
+              <p>The original barbell class: light to moderate weights, high reps, every major muscle group. Get lean and strong.</p>
+              <ul class="class-stats">
+                <li><strong>60</strong><span>minutes</span></li>
+                <li><strong>10</strong><span>tracks</span></li>
+                <li><strong>All</strong><span>levels</span></li>
+              </ul>
+              <figure class="class-chart">
+                <figcaption>Track by track</figcaption>
+                <div class="pump-chart" aria-hidden="true"><span class="pump-bar" style="--h:0.4"><i>1</i></span><span class="pump-bar" style="--h:0.95"><i>2</i></span><span class="pump-bar" style="--h:0.75"><i>3</i></span><span class="pump-bar" style="--h:0.8"><i>4</i></span><span class="pump-bar" style="--h:0.6"><i>5</i></span><span class="pump-bar" style="--h:0.6"><i>6</i></span><span class="pump-bar" style="--h:0.88"><i>7</i></span><span class="pump-bar" style="--h:0.65"><i>8</i></span><span class="pump-bar" style="--h:0.7"><i>9</i></span><span class="pump-bar" style="--h:0.25"><i>10</i></span></div>
+                <ol class="pump-tracks">
+                  <li>Warm-up</li><li>Squats</li><li>Chest</li><li>Back</li><li>Triceps</li>
+                  <li>Biceps</li><li>Lunges</li><li>Shoulders</li><li>Core</li><li>Cool-down</li>
+                </ol>
+              </figure>
+            </div>
+
+            <div class="classes__cta reveal">
+              <a href="#contact" class="btn btn--primary" data-plan="Small group sessions">Book a group class</a>
+              <p>For small groups, corporate teams, hotels and gyms across Abu Dhabi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ======================= 5. PRICING ======================= -->
     <!-- Prices live in data-* attributes so the monthly / 3-month toggle can switch them.
          Stripe Payment Links are set in assets/js/main.js (CONFIG.paymentLinks). -->
-    <section class="section" id="pricing" aria-labelledby="pricing-title">
+    <section class="section section--alt" id="pricing" aria-labelledby="pricing-title">
       <div class="container">
         <div class="section-head section-head--center">
           <span class="eyebrow reveal">Pricing & subscriptions</span>
@@ -355,7 +476,7 @@
     </section>
 
     <!-- ======================= 6. HOW IT WORKS ======================= -->
-    <section class="section section--alt" id="how" aria-labelledby="how-title">
+    <section class="section" id="how" aria-labelledby="how-title">
       <div class="container">
         <div class="section-head section-head--center">
           <span class="eyebrow reveal">How it works</span>
@@ -384,69 +505,6 @@
       </div>
     </section>
 
-    <!-- ======================= 7. RESULTS / TESTIMONIALS ======================= -->
-    <!-- IMPORTANT: replace placeholders with REAL client photos & reviews (with their written consent). -->
-    <section class="section" id="results" aria-labelledby="results-title">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow reveal">Results</span>
-          <h2 class="section-title reveal" id="results-title">Real people. <span class="accent">Real results.</span></h2>
-          <p class="section-lead reveal">Consistency + the right coaching = transformation. Here's what my clients achieved.</p>
-        </div>
-
-        <div class="ba-grid">
-          <article class="ba reveal">
-            <div class="ba__images">
-              <figure><img src="assets/img/placeholder-before.svg" alt="Client Karim before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/img/placeholder-after.svg" alt="Client Karim after 4 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
-            </div>
-            <div class="ba__body"><strong>Karim · -14 kg</strong><span>4 months · Fighter plan</span></div>
-          </article>
-          <article class="ba reveal" data-delay="1">
-            <div class="ba__images">
-              <figure><img src="assets/img/placeholder-before.svg" alt="Client Sarah before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/img/placeholder-after.svg" alt="Client Sarah after 6 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
-            </div>
-            <div class="ba__body"><strong>Sarah · -9 kg</strong><span>6 months · Champion plan</span></div>
-          </article>
-          <article class="ba reveal" data-delay="2">
-            <div class="ba__images">
-              <figure><img src="assets/img/placeholder-before.svg" alt="Client Thomas before starting coaching" loading="lazy" /><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/img/placeholder-after.svg" alt="Client Thomas after 3 months of coaching" loading="lazy" /><figcaption>After</figcaption></figure>
-            </div>
-            <div class="ba__body"><strong>Thomas · +6 kg muscle</strong><span>3 months · Fighter plan</span></div>
-          </article>
-        </div>
-
-        <div class="reviews">
-          <figure class="card review reveal">
-            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"I'd never boxed in my life and was honestly intimidated. Abdelhalim made me feel at home from day one. 4 months later I'm 14 kg lighter and I actually look forward to training."</blockquote>
-            <figcaption class="review__author">
-              <img src="assets/img/avatar-k.svg" alt="" width="48" height="48" loading="lazy" />
-              <div><strong>Karim B.</strong><span>Engineer · client since 2024</span></div>
-            </figcaption>
-          </figure>
-          <figure class="card review reveal" data-delay="1">
-            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"Best investment I've made in myself. The sessions are intense but always adapted, and the WhatsApp follow-up keeps me on track with my nutrition. Results I never got at the gym alone."</blockquote>
-            <figcaption class="review__author">
-              <img src="assets/img/avatar-s.svg" alt="" width="48" height="48" loading="lazy" />
-              <div><strong>Sarah L.</strong><span>Lawyer · Champion plan</span></div>
-            </figcaption>
-          </figure>
-          <figure class="card review reveal" data-delay="2">
-            <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote>"Technique, cardio, mindset: Abdelhalim covers everything. My stamina has doubled, I've put on muscle and I finally feel confident. Can't recommend Abdelhalim enough."</blockquote>
-            <figcaption class="review__author">
-              <img src="assets/img/avatar-t.svg" alt="" width="48" height="48" loading="lazy" />
-              <div><strong>Thomas R.</strong><span>Student · Fighter plan</span></div>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
     <!-- ======================= 8. GALLERY ======================= -->
     <section class="section section--alt" id="gallery" aria-labelledby="gallery-title">
       <div class="container">
@@ -455,13 +513,12 @@
           <h2 class="section-title reveal" id="gallery-title">Inside the <span class="accent">training</span></h2>
         </div>
 
-        <!-- Replace with your own photos. For a video tile use:
-             <video src="assets/video/clip.mp4" muted loop playsinline autoplay></video> -->
+        <!-- Each tile opens the photo viewer (see main.js). To add a photo, copy a <button> tile. -->
         <div class="gallery gallery--coach">
-          <div class="gallery__item gallery__item--b reveal" data-delay="1"><img src="assets/img/coach-high-kick.jpg" alt="Abdelhalim Benhaddi throwing a high roundhouse kick at a heavy bag" loading="lazy" width="1280" height="1110" /></div>
-          <div class="gallery__item gallery__item--d reveal" data-delay="2"><img src="assets/img/coach-physique.jpg" alt="Abdelhalim Benhaddi showing his physique in the studio mirror" loading="lazy" width="1244" height="1279" /></div>
-          <div class="gallery__item gallery__item--c reveal"><img src="assets/img/coach-core-training.jpg" alt="Abdelhalim Benhaddi demonstrating a core crunch on a mat in the studio" loading="lazy" width="1280" height="1099" /></div>
-          <div class="gallery__item gallery__item--e reveal" data-delay="1"><img src="assets/img/coach-battle-ropes.jpg" alt="Abdelhalim Benhaddi doing battle-rope conditioning in the gym" loading="lazy" width="1280" height="1280" /></div>
+          <button type="button" class="gallery__item gallery__item--b reveal" data-delay="1" aria-label="View larger: Abdelhalim Benhaddi throwing a high roundhouse kick at a heavy bag"><img src="assets/img/coach-high-kick.jpg" alt="Abdelhalim Benhaddi throwing a high roundhouse kick at a heavy bag" loading="lazy" width="1280" height="1110" /></button>
+          <button type="button" class="gallery__item gallery__item--d reveal" data-delay="2" aria-label="View larger: Abdelhalim Benhaddi showing his physique in the studio mirror"><img src="assets/img/coach-physique.jpg" alt="Abdelhalim Benhaddi showing his physique in the studio mirror" loading="lazy" width="1244" height="1279" /></button>
+          <button type="button" class="gallery__item gallery__item--c reveal" aria-label="View larger: Abdelhalim Benhaddi demonstrating a core crunch on a mat in the studio"><img src="assets/img/coach-core-training.jpg" alt="Abdelhalim Benhaddi demonstrating a core crunch on a mat in the studio" loading="lazy" width="1280" height="1099" /></button>
+          <button type="button" class="gallery__item gallery__item--e reveal" data-delay="1" aria-label="View larger: Abdelhalim Benhaddi doing battle-rope conditioning in the gym"><img src="assets/img/coach-battle-ropes.jpg" alt="Abdelhalim Benhaddi doing battle-rope conditioning in the gym" loading="lazy" width="1280" height="1280" /></button>
         </div>
 
         <!-- INSTAGRAM FEED: paste your widget embed here (e.g. Behold, SnapWidget, Elfsight). See README. -->
@@ -469,7 +526,7 @@
 
         <div class="insta-cta reveal">
           <p><strong>Follow the journey</strong><span style="color:var(--muted)">Daily training clips, tips and client wins on Instagram.</span></p>
-          <a href="https://instagram.com/yourhandle" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">@yourhandle</a>
+          <a href="https://www.instagram.com/abdelhalimlife/" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">@abdelhalimlife</a>
         </div>
       </div>
     </section>
@@ -525,6 +582,7 @@
                On Vercel/other hosts, set CONFIG.formEndpoint in main.js (e.g. Formspree). -->
           <form class="form reveal" id="booking-form" name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
             <input type="hidden" name="form-name" value="booking" />
+            <input type="hidden" name="language" value="en" />
             <p class="visually-hidden"><label>Don't fill this in: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
             <div class="form__row">
@@ -546,24 +604,24 @@
                 <label for="goal">Main goal *</label>
                 <select id="goal" name="goal" required>
                   <option value="" disabled selected>Choose your goal</option>
-                  <option>Lose weight</option>
-                  <option>Learn boxing</option>
-                  <option>Get fit & build stamina</option>
-                  <option>Build strength & muscle</option>
-                  <option>Prepare for competition</option>
-                  <option>Other</option>
+                  <option value="Lose weight">Lose weight</option>
+                  <option value="Learn boxing">Learn boxing</option>
+                  <option value="Get fit & build stamina">Get fit & build stamina</option>
+                  <option value="Build strength & muscle">Build strength & muscle</option>
+                  <option value="Prepare for competition">Prepare for competition</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
             <div class="field">
               <label for="plan">Preferred plan</label>
               <select id="plan" name="plan">
-                <option selected>Free intro session</option>
-                <option>Single session</option>
-                <option>Fighter plan</option>
-                <option>Champion plan</option>
-                <option>Small group sessions</option>
-                <option>Online coaching</option>
+                <option value="Free intro session" selected>Free intro session</option>
+                <option value="Single session">Single session</option>
+                <option value="Fighter plan">Fighter plan</option>
+                <option value="Champion plan">Champion plan</option>
+                <option value="Small group sessions">Small group sessions</option>
+                <option value="Online coaching">Online coaching</option>
               </select>
             </div>
             <div class="field">
@@ -606,14 +664,8 @@
               <p style="margin-bottom:6px"><a href="tel:+212655911650">+212 655 911650</a></p>
               <p><a href="mailto:abdelhalimbenhaddi09@gmail.com">abdelhalimbenhaddi09@gmail.com</a></p>
               <div class="socials">
-                <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
+                <a href="https://www.instagram.com/abdelhalimlife/" target="_blank" rel="noopener" aria-label="Instagram">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-                </a>
-                <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener" aria-label="TikTok">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg>
-                </a>
-                <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.1A28 28 0 0 0 14.6 2C12 2 10 3.7 10 6.7v2.8H7v4h3V22h4v-8.5Z"/></svg>
                 </a>
               </div>
             </div>
@@ -637,12 +689,10 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a href="#top" class="logo" style="margin-bottom:14px"><span class="logo__mark" aria-hidden="true">A2B</span><span class="logo__name">Abdelhalim Benhaddi</span></a>
+          <a href="#top" class="logo" style="margin-bottom:14px"><img class="logo__mark" src="assets/img/logo-mark.svg" alt="" width="39" height="34" /><span class="logo__name">Abdelhalim Benhaddi</span></a>
           <p>Private boxing, martial arts & fitness coaching in Abu Dhabi. Train like a fighter, live like a champion.</p>
           <div class="socials">
-            <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-            <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.4 7.4 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5Z"/></svg></a>
-            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1 0-2 2-2h1.5V2.1A28 28 0 0 0 14.6 2C12 2 10 3.7 10 6.7v2.8H7v4h3V22h4v-8.5Z"/></svg></a>
+            <a href="https://www.instagram.com/abdelhalimlife/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           </div>
         </div>
         <div>
@@ -651,7 +701,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#results">Results</a></li>
+            <li><a href="#gallery">Gallery</a></li>
           </ul>
         </div>
         <div>
@@ -683,8 +733,17 @@
     </div>
   </footer>
 
+  <!-- Gallery photo viewer -->
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <img class="lightbox__img" alt="" />
+    <button type="button" class="lightbox__btn lightbox__close" data-lightbox="close" aria-label="Close">&times;</button>
+    <button type="button" class="lightbox__btn lightbox__prev" data-lightbox="prev" aria-label="Previous photo">&#8249;</button>
+    <button type="button" class="lightbox__btn lightbox__next" data-lightbox="next" aria-label="Next photo">&#8250;</button>
+  </dialog>
+
   <!-- Sticky bottom booking bar (phones only) -->
   <div class="mobile-cta" id="mobile-cta">
+    <a href="ar/" class="mobile-menu__lang" hreflang="ar" lang="ar">عربي · النسخة العربية</a>
     <a href="#contact" class="btn btn--primary btn--block" data-plan="Free intro session">Book a free intro session</a>
   </div>
 
