@@ -344,6 +344,23 @@ TEXT = [
     (">Terms of sale</a>", ">شروط البيع</a>"),
     (">Cookie settings</button>", ">إعدادات ملفات تعريف الارتباط</button>"),
 
+    # Ask A2B chat
+    ('<span class="chat-fab__label">Ask A2B</span>', '<span class="chat-fab__label">اسأل A2B</span>'),
+    ('<strong id="chat-title">Ask A2B</strong>', '<strong id="chat-title">اسأل A2B</strong>'),
+    ("<span>AI assistant · replies instantly</span>", "<span>مساعد ذكي · يرد فوراً</span>"),
+    ('aria-label="Close chat"', 'aria-label="إغلاق المحادثة"'),
+    ("Hi! I'm Abdelhalim's AI assistant. Ask me about training, plans and prices, in English, Arabic or French. 👊",
+     "مرحباً! أنا المساعد الذكي لعبد الحليم. اسألني عن التدريب والخطط والأسعار، بالعربية أو الإنجليزية أو الفرنسية. 👊"),
+    ('<button type="button">Which plan is right for me?</button>', '<button type="button">ما الخطة المناسبة لي؟</button>'),
+    ("<button type=\"button\">I'm a total beginner</button>", '<button type="button">أنا مبتدئ تماماً</button>'),
+    ('<button type="button">What happens in the free session?</button>', '<button type="button">ماذا يحدث في الحصة المجانية؟</button>'),
+    # The 4th chip (Where do sessions take place?) is translated by the FAQ entry with the same text.
+    ('class="visually-hidden">Your message</label>', 'class="visually-hidden">رسالتك</label>'),
+    ('placeholder="Type your question…"', 'placeholder="اكتب سؤالك…"'),
+    ('class="chat__send" aria-label="Send"', 'class="chat__send" aria-label="إرسال"'),
+    ("""AI can make mistakes and doesn't give medical advice. Chats are processed by Anthropic. <a href="privacy.html#ai">Privacy</a>""",
+     """قد يخطئ المساعد الذكي ولا يقدّم نصائح طبية. تتم معالجة المحادثات بواسطة Anthropic. <a href="privacy.html#ai">الخصوصية</a>"""),
+
     # Photo viewer, WhatsApp button, cookie banner
     ('aria-label="Photo viewer"', 'aria-label="عارض الصور"'),
     ('aria-label="Close">&times;</button>', 'aria-label="إغلاق">&times;</button>'),
@@ -373,7 +390,7 @@ OPTIONS = {
 
 # Latin words that are fine to keep on the Arabic page (brand names, handles, contact details)
 ALLOWED_LATIN = {"Les", "Mills", "BODYPUMP", "RPM", "UM6P", "Alpha", "Forme", "Fairmont", "HIIT",
-                 "Stripe", "English", "version", "abdelhalimlife", "abdelhalimbenhaddi", "gmail", "com", "you", "email"}
+                 "Stripe", "English", "version", "abdelhalimlife", "abdelhalimbenhaddi", "gmail", "com", "you", "email", "Anthropic"}
 
 
 def apply(html, pairs, missing):

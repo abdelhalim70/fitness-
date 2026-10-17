@@ -1,0 +1,14 @@
+{
+  "name": "a2b-coaching-site",
+  "private": true,
+  "type": "module",
+  "description": "Abdelhalim Benhaddi coaching website. Static site + one Netlify Function (Ask A2B chat).",
+  "scripts": {
+    "build:ar": "python3 tools/build-ar.py",
+    "test:chat": "node tools/test-chat.mjs",
+    "try:chat": "node tools/try-chat.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0"
+  }
+}

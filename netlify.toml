@@ -2,6 +2,10 @@
 [build]
   publish = "."
 
+# Server-side code (the Ask A2B chat). Needs ANTHROPIC_API_KEY in the site's environment variables.
+[functions]
+  directory = "netlify/functions"
+
 # Security headers for every page
 [[headers]]
   for = "/*"
@@ -22,3 +26,31 @@
   from = "/favicon.ico"
   to = "/assets/img/favicon-32.png"
   status = 200
+
+# The site is published from the repo root: hide files that aren't part of the website
+# (server code, tools, installed packages). They hold no secrets, but don't need to be public.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/tools/*"
+  to = "/404"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/node_modules/*"
+  to = "/404"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/package*"
+  to = "/404"
+  status = 404
+  force = true
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true

@@ -11,10 +11,12 @@ assets/img/           → logo (logo-mark.svg, logo-text.svg, logo-full.svg), ic
                         icon-192/512 for phones), link-preview images (og-image-en/ar.jpg) and the coach's photos
 site.webmanifest      → phone home-screen app name and icon
 
-> **Changing the tab icon later?** Browsers cache it hard. After replacing `favicon.svg` / the icon PNGs,
-> bump the `?v=2` on the icon links in `index.html` and `privacy.html` (e.g. to `?v=3`), then run `python3 tools/build-ar.py`.
+> **Changing CSS, JS or the tab icon later?** Browsers cache it hard. After replacing `favicon.svg` / the icon PNGs,
+> bump the `?v=…` on the `styles.css` / `main.js` links (currently `?v=3`) or the icon links (`?v=2`) in `index.html` and `privacy.html` (e.g. to `?v=3`), then run `python3 tools/build-ar.py`.
 ar/index.html         → Arabic version (right-to-left). GENERATED, don't edit by hand
 tools/build-ar.py     → builds ar/index.html from index.html + the Arabic translations
+netlify/functions/chat/ → Ask A2B AI chat (server side): chat.mjs + knowledge.mjs (what the assistant knows)
+package.json          → the Anthropic SDK used by the chat function
 netlify.toml          → Netlify settings (security headers, image/CSS/JS caching)
 robots.txt, sitemap.xml → for Google (replace your-domain.com before launch)
 ```
@@ -61,6 +63,31 @@ Hero video: the hero has a commented-out `<video>` snippet. Keep the file small 
 **Social links:** Instagram (@abdelhalimlife) is linked in the gallery, contact section and footer. To add TikTok or Facebook, copy one of the Instagram `<a>` links inside a `.socials` block and change the URL, icon and `aria-label`.
 
 **Reviews / results:** removed until you have real ones. To add them back, ask for a testimonials section and use only real client quotes and photos, with written permission.
+
+## "Ask A2B" AI chat assistant
+
+A chat button on both pages ("Ask A2B" / «اسأل A2B») opens an AI assistant powered by Claude (Anthropic). It answers questions about the coaching in English, Arabic or French, recommends a plan, and shows a **Book** button that opens the booking form with that plan selected.
+
+**How it's built**
+- `netlify/functions/chat/chat.mjs`: the server side (a Netlify Function at `/api/chat`). It keeps the API key secret, checks every request, limits usage and streams the reply.
+- `netlify/functions/chat/knowledge.mjs`: **everything the assistant knows** (services, prices, FAQ, contact) and its rules (short replies, no medical advice, always guide to booking). **When you change a price or service on the site, update this file too.**
+- The chat window itself is in `index.html` (bottom of the page) and `assets/js/main.js` ("Ask A2B chat").
+
+**Turn it on (one time)**
+1. Create an account at [console.anthropic.com](https://console.anthropic.com), add a payment method and create an **API key**.
+2. In the Anthropic Console, set a **monthly spend limit** (Settings → Limits), e.g. $20. This is your real protection against surprise bills.
+3. In Netlify: **Site configuration → Environment variables → Add a variable**: name `ANTHROPIC_API_KEY`, value your key. Redeploy the site.
+4. Open the live site and try the chat.
+
+Without the key (or on the local `python3 -m http.server` preview, which can't run functions) the chat shows "Sorry, I can't answer right now" with a WhatsApp link, so visitors are never stuck. To try the full chat on your computer, use `npx netlify dev` (with the key in a `.env` file, which git ignores).
+
+**Check its answers before going live:** `ANTHROPIC_API_KEY=sk-ant-... npm run try:chat` asks it four test questions (a beginner, an Arabic question, a knee-pain question it must not give medical advice on, an off-topic request) and prints the replies. Add your own: `npm run try:chat -- "your question"`.
+
+**Tests (free, offline):** `npm run test:chat`.
+
+**Cost & limits:** it uses Claude Opus 5.5 at low effort for quick replies, and caps each reply's length. Each visitor can send 30 messages per 10 minutes, conversations keep only the latest 16 messages, and messages are limited to 800 characters. Watch real usage in the Anthropic Console during the first weeks. If cost matters more than answer quality, you can switch the `model` in `chat.mjs` to `claude-haiku-5-5` (much cheaper; test the answers again with `npm run try:chat`, and remove the `betas` / `fallbacks` lines, which Haiku doesn't support).
+
+**Privacy:** visitors' chat messages are sent to Anthropic; section 5b of the privacy page explains this. Conversations are not stored on the server.
 
 ## Arabic version (/ar/)
 

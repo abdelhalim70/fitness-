@@ -37,6 +37,11 @@ const STRINGS = {
     success: (name, wa) => `✅ Thanks ${name}! Your request is in. I'll contact you within 24h. ` +
       `Want a faster reply? <a href="${wa}" target="_blank" rel="noopener" style="text-decoration:underline">Message me on WhatsApp</a>.`,
     error: (wa) => `Something went wrong sending your request. Please <a href="${wa}" target="_blank" rel="noopener" style="text-decoration:underline">message me on WhatsApp</a> instead.`,
+    chatBook: (plan) => `Book: ${plan}`,
+    chatError: (wa) => `Sorry, I can't answer right now. You can <a href="${wa}" target="_blank" rel="noopener">message Abdelhalim on WhatsApp</a> instead.`,
+    chatRefusal: (wa) => `I can't help with that one. For anything about your training, <a href="${wa}" target="_blank" rel="noopener">message Abdelhalim on WhatsApp</a>.`,
+    chatLimit: "You've sent a lot of messages. Please wait a few minutes, or book your free session below.",
+    chatTooLong: "That message is a bit long. Please keep it under 800 characters.",
   },
   ar: {
     whatsappMessage: "مرحباً عبد الحليم! أرغب في حجز حصتي التعريفية المجانية.",
@@ -49,6 +54,11 @@ const STRINGS = {
     success: (name, wa) => `✅ شكراً ${name}! تم استلام طلبك، وسأتواصل معك خلال 24 ساعة. ` +
       `تريد رداً أسرع؟ <a href="${wa}" target="_blank" rel="noopener" style="text-decoration:underline">راسلني على واتساب</a>.`,
     error: (wa) => `حدث خطأ أثناء إرسال طلبك. يرجى <a href="${wa}" target="_blank" rel="noopener" style="text-decoration:underline">مراسلتي على واتساب</a> بدلاً من ذلك.`,
+    chatBook: (plan) => `احجز: ${plan}`,
+    chatError: (wa) => `عذراً، لا أستطيع الرد الآن. يمكنك <a href="${wa}" target="_blank" rel="noopener">مراسلة عبد الحليم على واتساب</a> بدلاً من ذلك.`,
+    chatRefusal: (wa) => `لا أستطيع المساعدة في هذا الطلب. لأي سؤال عن تدريبك، <a href="${wa}" target="_blank" rel="noopener">راسل عبد الحليم على واتساب</a>.`,
+    chatLimit: "لقد أرسلت رسائل كثيرة. يرجى الانتظار بضع دقائق، أو احجز حصتك المجانية في الأسفل.",
+    chatTooLong: "رسالتك طويلة بعض الشيء. يرجى ألا تتجاوز 800 حرف.",
   },
 };
 const LANG = document.documentElement.lang === "ar" ? "ar" : "en";
@@ -349,6 +359,156 @@ form.addEventListener("submit", async (e) => {
 
 function escapeHtml(str) {
   return str.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/* ---------- Ask A2B chat (AI assistant, see netlify/functions/chat) ---------- */
+const chatEl = $("#chat");
+if (chatEl) {
+  const fab = $("#chat-open");
+  const log = $("#chat-log");
+  const chips = $("#chat-chips");
+  const chatForm = $("#chat-form");
+  const input = $("#chat-input");
+  const sendBtn = $(".chat__send", chatForm);
+  const HISTORY_KEY = "a2b-chat";
+  const ENDPOINT = "/api/chat";
+  let history = [];
+  try { history = JSON.parse(sessionStorage.getItem(HISTORY_KEY) || "[]"); } catch { history = []; }
+  let busy = false;
+
+  const save = () => { try { sessionStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-16))); } catch {} };
+  const planLabel = (value) => [...($("#plan")?.options || [])].find((o) => o.value === value)?.text || value;
+
+  // Bot replies are plain text with **bold** and an optional [[BOOK:option]] tag on the last line.
+  function renderBot(bubble, raw, done) {
+    let textPart = raw;
+    let plan = null;
+    const tag = raw.match(/\[\[BOOK:([^\]]+)\]\]\s*$/);
+    if (tag) { plan = tag[1].trim(); textPart = raw.slice(0, tag.index); }
+    if (!done) textPart = textPart.replace(/\[(\[[^\]]*)?$/, ""); // hide a tag that is still streaming in
+    bubble.innerHTML = escapeHtml(textPart.trim())
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n/g, "<br>");
+    if (plan && done && $("#plan") && [...$("#plan").options].some((o) => o.value === plan)) {
+      const book = document.createElement("a");
+      book.href = "#contact";
+      book.className = "btn btn--primary chat__book";
+      book.dataset.plan = plan; // the page's [data-plan] handler preselects it in the form
+      book.textContent = T.chatBook(planLabel(plan));
+      book.addEventListener("click", () => closeChat(false));
+      bubble.append(document.createElement("br"), book);
+    }
+  }
+
+  function addBubble(role, content) {
+    const div = document.createElement("div");
+    div.className = `chat__msg chat__msg--${role === "user" ? "user" : "bot"}`;
+    if (role === "user") div.textContent = content;
+    else renderBot(div, content, true);
+    log.append(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
+  function showError(html) {
+    const div = addBubble("assistant", "");
+    div.classList.add("chat__msg--error");
+    div.innerHTML = html;
+  }
+
+  history.forEach((m) => addBubble(m.role, m.content));
+  chips.hidden = history.length > 0;
+
+  async function send(question) {
+    question = question.trim();
+    if (!question || busy) return;
+    if (question.length > 800) { showError(escapeHtml(T.chatTooLong)); return; }
+    busy = true;
+    sendBtn.disabled = true;
+    chips.hidden = true;
+    history.push({ role: "user", content: question });
+    addBubble("user", question);
+
+    const bubble = addBubble("assistant", "");
+    bubble.innerHTML = '<span class="chat__typing" aria-hidden="true"><i></i><i></i><i></i></span>';
+    let reply = "";
+    let failure = null;
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: history }),
+      });
+      if (res.status === 429) failure = "limit";
+      else if (!res.ok || !res.body) failure = "error";
+      else {
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        for (;;) {
+          const { value, done } = await reader.read();
+          if (done) break;
+          reply += decoder.decode(value, { stream: true });
+          if (!reply.includes("[[ERROR]]") && !reply.includes("[[REFUSAL]]")) {
+            renderBot(bubble, reply, false);
+            log.scrollTop = log.scrollHeight;
+          }
+        }
+        if (reply.includes("[[REFUSAL]]")) failure = "refusal";
+        else if (reply.includes("[[ERROR]]") || !reply.trim()) failure = "error";
+      }
+    } catch {
+      failure = "error"; // offline, or the chat isn't deployed (e.g. a local preview without Netlify)
+    }
+
+    if (failure) {
+      bubble.remove();
+      history.pop(); // the question goes unanswered: drop it so the next request stays a valid conversation
+      showError(failure === "limit" ? escapeHtml(T.chatLimit)
+        : failure === "refusal" ? T.chatRefusal(waUrl()) : T.chatError(waUrl()));
+    } else {
+      renderBot(bubble, reply, true);
+      history.push({ role: "assistant", content: reply.trim() });
+      save();
+    }
+    log.scrollTop = log.scrollHeight;
+    busy = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  function openChat() {
+    chatEl.hidden = false;
+    fab.setAttribute("aria-expanded", "true");
+    if (matchMedia("(max-width: 640px)").matches) document.body.style.overflow = "hidden";
+    log.scrollTop = log.scrollHeight;
+    input.focus();
+  }
+  function closeChat(returnFocus = true) {
+    chatEl.hidden = true;
+    fab.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    if (returnFocus) fab.focus();
+  }
+
+  fab.addEventListener("click", openChat);
+  $("#chat-close").addEventListener("click", () => closeChat());
+  chatEl.addEventListener("keydown", (e) => { if (e.key === "Escape") closeChat(); });
+  $$("button", chips).forEach((b) => b.addEventListener("click", () => send(b.textContent)));
+  chatForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = input.value;
+    input.value = "";
+    input.style.height = "";
+    send(q);
+  });
+  // Enter sends, Shift+Enter adds a new line; the box grows with the text
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) { e.preventDefault(); chatForm.requestSubmit(); }
+  });
+  input.addEventListener("input", () => {
+    input.style.height = "";
+    input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
+  });
 }
 
 /* ---------- Cookie consent ---------- */

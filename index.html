@@ -44,7 +44,7 @@
   <!-- Hero image is the LCP element: preload it -->
   <link rel="preload" as="image" href="assets/img/coach-battle-ropes.jpg" />
 
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
   <!-- Splash screen: shown once per browser session, never with "reduce motion" -->
   <script>
     try {
@@ -752,6 +752,44 @@
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2Z"/></svg>
   </a>
 
+  <!-- ======================= ASK A2B (AI chat assistant) =======================
+       Front end for netlify/functions/chat. Logic in main.js ("Ask A2B chat"). -->
+  <button type="button" class="chat-fab" id="chat-open" aria-controls="chat" aria-expanded="false">
+    <img src="assets/img/logo-mark.svg" alt="" width="26" height="23" />
+    <span class="chat-fab__label">Ask A2B</span>
+  </button>
+
+  <section class="chat" id="chat" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+    <header class="chat__head">
+      <img src="assets/img/logo-mark.svg" alt="" width="34" height="30" />
+      <div class="chat__title">
+        <strong id="chat-title">Ask A2B</strong>
+        <span>AI assistant · replies instantly</span>
+      </div>
+      <button type="button" class="chat__close" id="chat-close" aria-label="Close chat">&times;</button>
+    </header>
+
+    <div class="chat__log" id="chat-log" role="log" aria-live="polite">
+      <div class="chat__msg chat__msg--bot chat__welcome">Hi! I'm Abdelhalim's AI assistant. Ask me about training, plans and prices, in English, Arabic or French. 👊</div>
+    </div>
+
+    <div class="chat__chips" id="chat-chips">
+      <button type="button">Which plan is right for me?</button>
+      <button type="button">I'm a total beginner</button>
+      <button type="button">What happens in the free session?</button>
+      <button type="button">Where do sessions take place?</button>
+    </div>
+
+    <form class="chat__form" id="chat-form">
+      <label for="chat-input" class="visually-hidden">Your message</label>
+      <textarea id="chat-input" rows="1" maxlength="800" placeholder="Type your question…" autocomplete="off"></textarea>
+      <button type="submit" class="chat__send" aria-label="Send">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </button>
+    </form>
+    <p class="chat__note">AI can make mistakes and doesn't give medical advice. Chats are processed by Anthropic. <a href="privacy.html#ai">Privacy</a></p>
+  </section>
+
   <!-- Cookie banner -->
   <div class="cookie" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
     <p>🍪 This site uses essential cookies and, with your consent, analytics cookies to improve your experience. <a href="privacy.html#cookies">Learn more</a></p>
@@ -761,6 +799,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
